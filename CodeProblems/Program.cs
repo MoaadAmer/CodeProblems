@@ -71,20 +71,43 @@ using Xunit;
 //    Console.WriteLine(num);
 //}
 
+//Recursion recursion = new Recursion();
+//Console.WriteLine("Factorial(0):");
+//Assert.Equal(1, recursion.Factorial(0));
+
+//Console.WriteLine("Factorial(1):");
+//Assert.Equal(1, recursion.Factorial(1));
+
+//Console.WriteLine("Factorial(2):");
+//Assert.Equal(2, recursion.Factorial(2));
+
+
+//Console.WriteLine("Factorial(3):");
+//Assert.Equal(6, recursion.Factorial(3));
+
+
+//Console.WriteLine("Factorial(4):");
+//Assert.Equal(24, recursion.Factorial(4));
+
+
+
 Recursion recursion = new Recursion();
-Console.WriteLine("Factorial(0):");
-Assert.Equal(1, recursion.Factorial(0));
+Console.WriteLine("Fibonacci(0):");
+Assert.Equal(0, recursion.Fibonacci(0));
 
-Console.WriteLine("Factorial(1):");
-Assert.Equal(1, recursion.Factorial(1));
+Console.WriteLine("Fibonacci(1):");
+Assert.Equal(1, recursion.Fibonacci(1));
 
-Console.WriteLine("Factorial(2):");
-Assert.Equal(2, recursion.Factorial(2));
-
-
-Console.WriteLine("Factorial(3):");
-Assert.Equal(6, recursion.Factorial(3));
+Console.WriteLine("Fibonacci(2):");
+Assert.Equal(1, recursion.Fibonacci(2));
 
 
-Console.WriteLine("Factorial(4):");
-Assert.Equal(24, recursion.Factorial(4));
+Console.WriteLine("Fibonacci(3):");
+Assert.Equal(2, recursion.Fibonacci(3));
+
+
+Console.WriteLine("Fibonacci(4):");
+Assert.Equal(3, recursion.Fibonacci(4));
+
+Console.WriteLine("Fibonacci(5):");
+Assert.Equal(5, recursion.Fibonacci(5));
