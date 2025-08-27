@@ -1,6 +1,7 @@
 ﻿
 
 using CodeProblems.Easy;
+using CodeProblems.Fundamentals.LinkedList;
 using CodeProblems.Fundamentals.Recursion;
 using CodeProblems.Fundamentals.Sorting;
 using CodeProblems.NeetCode150;
@@ -111,3 +112,12 @@ Assert.Equal(3, recursion.Fibonacci(4));
 
 Console.WriteLine("Fibonacci(5):");
 Assert.Equal(5, recursion.Fibonacci(5));
+
+
+
+Console.WriteLine("PrintInReverseOrder(1->2->3->4):");
+SingleNode<int> head = new SingleNode<int>(1,
+    new SingleNode<int>(2,
+    new SingleNode<int>(3,
+    new SingleNode<int>(4, null))));
+recursion.PrintInReverseOrder(head);
