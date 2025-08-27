@@ -46,7 +46,16 @@ using CodeProblems.Sorting;
 Sorting sorting = new Sorting();
 int[] nums = [-5, 3, 2,1,-3,-3,7,2,2];
 sorting.BubbleSort(nums);
+Console.WriteLine("BubbleSort:");
 foreach(int num in nums)
+{
+    Console.WriteLine(num);
+}
+
+nums = [-5, 3, 2, 1, -3, -3, 7, 2, 2];
+sorting.InsertionSort(nums);
+Console.WriteLine("InsertionSort:");
+foreach (int num in nums)
 {
     Console.WriteLine(num);
 }
