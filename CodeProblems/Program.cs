@@ -1,8 +1,10 @@
 ﻿
 
 using CodeProblems.Easy;
+using CodeProblems.Fundamentals.Recursion;
+using CodeProblems.Fundamentals.Sorting;
 using CodeProblems.NeetCode150;
-using CodeProblems.Sorting;
+using Xunit;
 
 //Console.WriteLine(EasyProblems.ClearDigits("cb34"));
 
@@ -43,28 +45,46 @@ using CodeProblems.Sorting;
 
 //arraysAndHashing.TopKFrequent([1, 2, 1, 2, 1, 2, 3, 1, 3, 2], 2);
 
-Sorting sorting = new Sorting();
-int[] nums = [-5, 3, 2,1,-3,-3,7,2,2];
-sorting.BubbleSort(nums);
-Console.WriteLine("BubbleSort:");
-foreach(int num in nums)
-{
-    Console.WriteLine(num);
-}
+//Sorting sorting = new Sorting();
+//int[] nums = [-5, 3, 2,1,-3,-3,7,2,2];
+//sorting.BubbleSort(nums);
+//Console.WriteLine("BubbleSort:");
+//foreach(int num in nums)
+//{
+//    Console.WriteLine(num);
+//}
 
-nums = [-5, 3, 2, 1, -3, -3, 7, 2, 2];
-sorting.InsertionSort(nums);
-Console.WriteLine("InsertionSort:");
-foreach (int num in nums)
-{
-    Console.WriteLine(num);
-}
+//nums = [-5, 3, 2, 1, -3, -3, 7, 2, 2];
+//sorting.InsertionSort(nums);
+//Console.WriteLine("InsertionSort:");
+//foreach (int num in nums)
+//{
+//    Console.WriteLine(num);
+//}
 
 
-nums = [-5, 3, 2, 1, -3, -3, 7, 2, 2];
-sorting.SelectionSort(nums);
-Console.WriteLine("SelectionSort:");
-foreach (int num in nums)
-{
-    Console.WriteLine(num);
-}
+//nums = [-5, 3, 2, 1, -3, -3, 7, 2, 2];
+//sorting.SelectionSort(nums);
+//Console.WriteLine("SelectionSort:");
+//foreach (int num in nums)
+//{
+//    Console.WriteLine(num);
+//}
+
+Recursion recursion = new Recursion();
+Console.WriteLine("Factorial(0):");
+Assert.Equal(1, recursion.Factorial(0));
+
+Console.WriteLine("Factorial(1):");
+Assert.Equal(1, recursion.Factorial(1));
+
+Console.WriteLine("Factorial(2):");
+Assert.Equal(2, recursion.Factorial(2));
+
+
+Console.WriteLine("Factorial(3):");
+Assert.Equal(6, recursion.Factorial(3));
+
+
+Console.WriteLine("Factorial(4):");
+Assert.Equal(24, recursion.Factorial(4));
