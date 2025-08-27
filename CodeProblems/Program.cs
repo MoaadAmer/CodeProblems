@@ -59,3 +59,12 @@ foreach (int num in nums)
 {
     Console.WriteLine(num);
 }
+
+
+nums = [-5, 3, 2, 1, -3, -3, 7, 2, 2];
+sorting.SelectionSort(nums);
+Console.WriteLine("SelectionSort:");
+foreach (int num in nums)
+{
+    Console.WriteLine(num);
+}
