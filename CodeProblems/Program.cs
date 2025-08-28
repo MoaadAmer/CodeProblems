@@ -73,8 +73,25 @@ int[] nums = [-5, 3, 2, 1, -3, -3, 7, 2, 2];
 //}
 
 
-nums = [-5, 3, 2, 1, -3, -3, 7, 2, 2];
-nums = sorting.MergeSort(nums);
+//nums = [-5, 3, 2, 1, -3, -3, 7, 2, 2];
+//nums = sorting.MergeSort(nums);
+//Console.WriteLine("MergeSort:");
+//foreach (int num in nums)
+//{
+//    Console.WriteLine(num);
+//}
+
+//nums = [-5, 3, 2, 1, -3, -3, 7, 2, 2];
+//nums = sorting.QuickSort(nums);
+//Console.WriteLine("MergeSort:");
+//foreach (int num in nums)
+//{
+//    Console.WriteLine(num);
+//}
+
+
+nums = [3, 2, 1, 7, 2, 2];
+sorting.CountingSort(nums);
 Console.WriteLine("MergeSort:");
 foreach (int num in nums)
 {

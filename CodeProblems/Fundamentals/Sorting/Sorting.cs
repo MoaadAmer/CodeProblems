@@ -1,4 +1,5 @@
-﻿namespace CodeProblems.Fundamentals.Sorting
+﻿
+namespace CodeProblems.Fundamentals.Sorting
 {
     public class Sorting
     {
@@ -95,7 +96,7 @@
             int r = 0;
             for (; r < rightSideLength; r++)
             {
-                rightSide[r] = nums[l+r];
+                rightSide[r] = nums[l + r];
             }
             leftSide = MergeSort(leftSide);
             rightSide = MergeSort(rightSide);
@@ -134,6 +135,92 @@
 
             return sortedArray;
         }
-    }
+        
+        //Runtime O(n log n)
+        //Space O(n)
+        public int[] QuickSort(int[] nums)
+        {
+            if (nums.Length <= 1)
+            {
+                return nums;
+            }
+            int[] pivot = [nums[nums.Length - 1]];
+            int leftSize = 0;
+            int rightSize = 0;
+            for (int i = 0; i < nums.Length - 1; i++)
+            {
+                if (nums[i] <= pivot[0])
+                {
+                    leftSize++;
+                }
+                else
+                {
+                    rightSize++;
+                }
+            }
+            int[] leftSide = new int[leftSize];
+            int[] rightSide = new int[rightSize];
+            int l = 0;
+            int r = 0;
+            for (int i = 0; i < nums.Length - 1; i++)
+            {
+                if (nums[i] <= pivot[0])
+                {
+                    leftSide[l++] = nums[i];
+                }
+                else
+                {
+                    rightSide[r++] = nums[i];
+                }
+            }
+            leftSide = QuickSort(leftSide);
+            rightSide = QuickSort(rightSide);
 
+            int[] sortedArray = new int[leftSide.Length + rightSide.Length + 1];
+
+            l = 0;
+            while (l < leftSide.Length)
+            {
+                sortedArray[l] = leftSide[l];
+                l++;
+            }
+            r = 0;
+            sortedArray[l + r] = pivot[0];
+            while (r < rightSide.Length)
+            {
+                sortedArray[l + r + 1] = rightSide[r];
+                r++;
+            }
+            return sortedArray;
+        }
+
+        //Runtime O(n +k)
+        //Space O(k)
+        public void CountingSort(int[] nums)
+        {
+            int max = nums[0];
+            for (int i = 1; i < nums.Length; i++)
+            {
+                if (nums[i] > max)
+                {
+                    max = nums[i];
+                }
+            }
+            int[] count = new int[max + 1];
+            for (int i = 0; i < nums.Length; i++)
+            {
+                count[nums[i]]++;
+            }
+            int j = 0;
+            for (int i = 1; i < count.Length; i++)
+            {
+                while (count[i] != 0)
+                {
+                    nums[j] = i;
+                    count[i] -= 1;
+                    j++;
+                }
+            }
+        }
+    }
 }
