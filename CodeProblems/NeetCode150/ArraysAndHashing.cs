@@ -2,41 +2,55 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace CodeProblems.NeetCode150
 {
     public class ArraysAndHashing
     {
-
+        //49. Group Anagrams
+        //Runtime O(N)
+        //Space O(N)
         public IList<IList<string>> GroupAnagrams(string[] strs)
         {
-            IList<IList<string>> res = [];
-            for (int i = 0; i < strs.Length; i++)
+            Dictionary<string, List<string>> count = new();
+            foreach (string str in strs)
             {
-                if (strs[i] != "-1")
+                int[] lettersCount = new int[26];
+                foreach (char c in str)
                 {
-                    List<string> ang = new List<string>();
-                    ang.Add(strs[i]);
-                    for (int j = i + 1; j < strs.Length; j++)
-                    {
-                        if (strs[j] != "-1")
-                        {
-                            if (IsAnagrams(strs[i], strs[j]))
-                            {
-                                ang.Add(strs[j]);
-                                strs[j] = "-1";
-                            }
-                        }
-                    }
-
-                    strs[i] = "-1";
-                    res.Add(ang);
+                    lettersCount[c - 'a']++;
+                }
+                string key = "";
+                for (int i = 0; i < lettersCount.Length; i++)
+                {
+                    key += (char)('a' + i) + lettersCount[i];
+                }
+                if (count.ContainsKey(key))
+                {
+                    count[key].Add(str);
+                }
+                else
+                {
+                    var list = new List<string>();
+                    list.Add(str);
+                    count.Add(key, list);
                 }
             }
-            return res;
+            IList<IList<string>> result = new List<IList<string>>();
+            foreach (List<string> list in count.Values)
+            {
+                result.Add(list);
+            }
+            return result;
         }
-        public bool IsAnagrams(string str1, string str2)
+
+        //242. Valid Anagram
+        //Runtime O(N)
+        //Space O(N)
+        public bool IsAnagram(string str1, string str2)
         {
             if (str1.Length != str2.Length)
             {
@@ -68,40 +82,7 @@ namespace CodeProblems.NeetCode150
             return true;
         }
 
-        public IList<IList<string>> GroupAnagrams2(string[] strs)
-        {
-            Dictionary<string, List<string>> dic = [];
-            IList<IList<string>> res = [];
-            for (int i = 0; i < strs.Length; i++)
-            {
-                int[] counter = new int[26];
-                foreach (char c in strs[i])
-                {
-                    counter[c - 'a']++;
-                }
-                string key = "";
-                for (int k = 0; k < 26; k++)
-                {
-                    key += $"{(char)('a' + k)}:{counter[k]}";
-                }
-                if (dic.ContainsKey(key))
-                {
 
-                    dic[key].Add(strs[i]);
-                }
-                else
-                {
-                    var list = new List<string>();
-                    list.Add(strs[i]);
-                    dic.Add(key, list);
-                }
-            }
-            foreach (string k in dic.Keys)
-            {
-                res.Add(dic[k]);
-            }
-            return res;
-        }
 
         //Runtime O(N)
         //Space O(N)

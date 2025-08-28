@@ -42,16 +42,26 @@ using Xunit;
 
 
 ArraysAndHashing arraysAndHashing = new ArraysAndHashing();
-////arraysAndHashing.GroupAnagrams2(["bdddddddddd", "bbbbbbbbbbc"]);
+IList<IList<string>>res= arraysAndHashing.GroupAnagrams(["bdddddddddd", "bbbbbbbbbbc"]);
 
-int[] topK = arraysAndHashing.TopKFrequent([1, 2, 1, 2, 1, 2, 3, 1, 3, 2], 2);
-Console.WriteLine("Top k");
-Console.WriteLine("Input: [1, 2, 1, 2, 1, 2, 3, 1, 3, 2], 2");
-Console.WriteLine("output:");
-foreach (int i in topK)
+
+for(int i = 0; i < res.Count; i++)
 {
-    Console.WriteLine(i);
+    Console.WriteLine($"Group {i+1}");
+    foreach(var item in res[i])
+    {
+        Console.WriteLine(item);
+    }
 }
+
+//int[] topK = arraysAndHashing.TopKFrequent([1, 2, 1, 2, 1, 2, 3, 1, 3, 2], 2);
+//Console.WriteLine("Top k");
+//Console.WriteLine("Input: [1, 2, 1, 2, 1, 2, 3, 1, 3, 2], 2");
+//Console.WriteLine("output:");
+//foreach (int i in topK)
+//{
+//    Console.WriteLine(i);
+//}
 
 //Sorting sorting = new Sorting();
 //int[] nums = [-5, 3, 2, 1, -3, -3, 7, 2, 2];
