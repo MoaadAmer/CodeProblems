@@ -46,8 +46,8 @@ using Xunit;
 
 //arraysAndHashing.TopKFrequent([1, 2, 1, 2, 1, 2, 3, 1, 3, 2], 2);
 
-//Sorting sorting = new Sorting();
-//int[] nums = [-5, 3, 2,1,-3,-3,7,2,2];
+Sorting sorting = new Sorting();
+int[] nums = [-5, 3, 2, 1, -3, -3, 7, 2, 2];
 //sorting.BubbleSort(nums);
 //Console.WriteLine("BubbleSort:");
 //foreach(int num in nums)
@@ -72,6 +72,15 @@ using Xunit;
 //    Console.WriteLine(num);
 //}
 
+
+nums = [-5, 3, 2, 1, -3, -3, 7, 2, 2];
+nums = sorting.MergeSort(nums);
+Console.WriteLine("MergeSort:");
+foreach (int num in nums)
+{
+    Console.WriteLine(num);
+}
+
 //Recursion recursion = new Recursion();
 //Console.WriteLine("Factorial(0):");
 //Assert.Equal(1, recursion.Factorial(0));
@@ -92,32 +101,32 @@ using Xunit;
 
 
 
-Recursion recursion = new Recursion();
-Console.WriteLine("Fibonacci(0):");
-Assert.Equal(0, recursion.Fibonacci(0));
+//Recursion recursion = new Recursion();
+//Console.WriteLine("Fibonacci(0):");
+//Assert.Equal(0, recursion.Fibonacci(0));
 
-Console.WriteLine("Fibonacci(1):");
-Assert.Equal(1, recursion.Fibonacci(1));
+//Console.WriteLine("Fibonacci(1):");
+//Assert.Equal(1, recursion.Fibonacci(1));
 
-Console.WriteLine("Fibonacci(2):");
-Assert.Equal(1, recursion.Fibonacci(2));
-
-
-Console.WriteLine("Fibonacci(3):");
-Assert.Equal(2, recursion.Fibonacci(3));
+//Console.WriteLine("Fibonacci(2):");
+//Assert.Equal(1, recursion.Fibonacci(2));
 
 
-Console.WriteLine("Fibonacci(4):");
-Assert.Equal(3, recursion.Fibonacci(4));
-
-Console.WriteLine("Fibonacci(5):");
-Assert.Equal(5, recursion.Fibonacci(5));
+//Console.WriteLine("Fibonacci(3):");
+//Assert.Equal(2, recursion.Fibonacci(3));
 
 
+//Console.WriteLine("Fibonacci(4):");
+//Assert.Equal(3, recursion.Fibonacci(4));
 
-Console.WriteLine("PrintInReverseOrder(1->2->3->4):");
-SingleNode<int> head = new SingleNode<int>(1,
-    new SingleNode<int>(2,
-    new SingleNode<int>(3,
-    new SingleNode<int>(4, null))));
-recursion.PrintInReverseOrder(head);
+//Console.WriteLine("Fibonacci(5):");
+//Assert.Equal(5, recursion.Fibonacci(5));
+
+
+
+//Console.WriteLine("PrintInReverseOrder(1->2->3->4):");
+//SingleNode<int> head = new SingleNode<int>(1,
+//    new SingleNode<int>(2,
+//    new SingleNode<int>(3,
+//    new SingleNode<int>(4, null))));
+//recursion.PrintInReverseOrder(head);
