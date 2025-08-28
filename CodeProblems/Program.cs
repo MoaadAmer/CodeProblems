@@ -41,13 +41,20 @@ using Xunit;
 //Console.WriteLine(map.CanConstruct("aa", "aab"));
 
 
-//ArraysAndHashing arraysAndHashing = new ArraysAndHashing();
+ArraysAndHashing arraysAndHashing = new ArraysAndHashing();
 ////arraysAndHashing.GroupAnagrams2(["bdddddddddd", "bbbbbbbbbbc"]);
 
-//arraysAndHashing.TopKFrequent([1, 2, 1, 2, 1, 2, 3, 1, 3, 2], 2);
+int[] topK = arraysAndHashing.TopKFrequent([1, 2, 1, 2, 1, 2, 3, 1, 3, 2], 2);
+Console.WriteLine("Top k");
+Console.WriteLine("Input: [1, 2, 1, 2, 1, 2, 3, 1, 3, 2], 2");
+Console.WriteLine("output:");
+foreach (int i in topK)
+{
+    Console.WriteLine(i);
+}
 
-Sorting sorting = new Sorting();
-int[] nums = [-5, 3, 2, 1, -3, -3, 7, 2, 2];
+//Sorting sorting = new Sorting();
+//int[] nums = [-5, 3, 2, 1, -3, -3, 7, 2, 2];
 //sorting.BubbleSort(nums);
 //Console.WriteLine("BubbleSort:");
 //foreach(int num in nums)
@@ -90,13 +97,13 @@ int[] nums = [-5, 3, 2, 1, -3, -3, 7, 2, 2];
 //}
 
 
-nums = [3, 2, 1, 7, 2, 2];
-sorting.CountingSort(nums);
-Console.WriteLine("MergeSort:");
-foreach (int num in nums)
-{
-    Console.WriteLine(num);
-}
+//nums = [3, 2, 1, 7, 2, 2];
+//sorting.CountingSort(nums);
+//Console.WriteLine("MergeSort:");
+//foreach (int num in nums)
+//{
+//    Console.WriteLine(num);
+//}
 
 //Recursion recursion = new Recursion();
 //Console.WriteLine("Factorial(0):");
@@ -147,3 +154,4 @@ foreach (int num in nums)
 //    new SingleNode<int>(3,
 //    new SingleNode<int>(4, null))));
 //recursion.PrintInReverseOrder(head);
+

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CodeProblems.NeetCode150
 {
-    internal class ArraysAndHashing
+    public class ArraysAndHashing
     {
 
         public IList<IList<string>> GroupAnagrams(string[] strs)
@@ -103,50 +103,47 @@ namespace CodeProblems.NeetCode150
             return res;
         }
 
-
+        //Runtime O(N)
+        //Space O(N)
         public int[] TopKFrequent(int[] nums, int k)
         {
             Dictionary<int, int> counter = new Dictionary<int, int>();
             List<int>[] freq = new List<int>[nums.Length + 1];
             int[] result = new int[k];
-
-            for (int i = 0; i < nums.Length; i++)
+            foreach (int num in nums)
             {
-                if (counter.ContainsKey(nums[i]))
+                if (counter.ContainsKey(num))
                 {
-                    counter[nums[i]] += 1;
+                    counter[num] = counter[num] + 1;
                 }
                 else
                 {
-                    counter[nums[i]] = 1;
+                    counter.Add(num, 1);
                 }
             }
-            foreach (int number in counter.Keys)
+            foreach (KeyValuePair<int, int> entry in counter)
             {
-                int count = counter[number];
-
-                if (freq[count] == null)
+                if (freq[entry.Value] == null)
                 {
-                    freq[count] = new List<int>();
+                    freq[entry.Value] = new List<int>();
                 }
-                freq[count].Add(number);
+                freq[entry.Value].Add(entry.Key);
             }
-            int j = 0;
+
             for (int i = freq.Length - 1; i > 0; i--)
             {
                 if (freq[i] != null)
                 {
-                    for (int l = 0; l < freq[i].Count; l++)
+                    for (int j = 0; j < freq[i].Count; j++)
                     {
-                        result[j] = freq[i][l];
-                        j++;
-                        if (j == k)
+                        result[--k] = freq[i][j];
+                        if (k == 0)
                         {
                             return result;
                         }
                     }
-
                 }
+
             }
             return result;
         }
