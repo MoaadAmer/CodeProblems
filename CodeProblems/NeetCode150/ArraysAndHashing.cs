@@ -11,7 +11,7 @@ namespace CodeProblems.NeetCode150
     public class ArraysAndHashing
     {
         //49. Group Anagrams
-        //Runtime O(N)
+        //Runtime O(N*M) where N=Number of strings and M= the average length of the strings
         //Space O(N)
         public IList<IList<string>> GroupAnagrams(string[] strs)
         {
