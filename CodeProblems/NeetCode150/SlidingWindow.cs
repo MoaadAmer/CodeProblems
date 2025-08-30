@@ -117,5 +117,131 @@
             return max;
         }
 
+
+        //424. Longest Repeating Character Replacement
+        //Medium
+        //You are given a string s and an integer k.You can choose any character of the string and change it to any other uppercase English character. You can perform this operation at most k times.
+
+        //Return the length of the longest substring containing the same letter you can get after performing the above operations.
+
+
+
+        //Example 1:
+
+        //Input: s = "ABAB", k = 2
+        //Output: 4
+        //Explanation: Replace the two 'A's with two 'B's or vice versa.
+        //Example 2:
+
+        //Input: s = "AABABBA", k = 1
+        //Output: 4
+        //Explanation: Replace the one 'A' in the middle with 'B' and form "AABBBBA".
+        //The substring "BBBB" has the longest repeating letters, which is 4.
+        //There may exists other ways to achieve this answer too.
+
+
+
+        //Constraints:
+
+        //1 <= s.length <= 105
+        //s consists of only uppercase English letters.
+        //0 <= k <= s.length
+
+        //Solution
+        //Runtime O(N*26)
+        //Space O(26)
+
+        public int CharacterReplacement1(string s, int k)
+        {
+            int[] letters = new int[26];
+            int l = 0;
+            int r = 0;
+            int max = 0;
+            int maxCount = 0;
+            int maxCountIndex = 0;
+            while (r < s.Length)
+            {
+                int letterIndex = s[r] - 'A';
+                letters[letterIndex]++;
+                if (maxCount < letters[letterIndex])
+                {
+                    maxCount = letters[letterIndex];
+                    maxCountIndex = letterIndex;
+                }
+                int windowLength = r - l + 1;
+                bool conditon = windowLength - maxCount <= k;
+                if (conditon && max < windowLength)
+                {
+                    max = windowLength;
+                }
+                else if (!conditon)
+                {
+                    while (!conditon)
+                    {
+                        letters[s[l] - 'A']--;
+                        l++;
+                        windowLength = r - l + 1;
+                        conditon = windowLength - maxCount <= k;
+                    }
+                    if (letterIndex == maxCountIndex)
+                    {
+                        maxCount = 0;
+                        for (int i = 0; i < letters.Length; i++)
+                        {
+                            if (letters[i] > maxCount)
+                            {
+                                maxCount = letters[i];
+                                maxCountIndex = i;
+                            }
+
+                        }
+                    }
+
+                }
+                r++;
+
+            }
+            return max;
+        }
+
+
+        //Solution
+        //Runtime O(N)
+        //Space O(26)
+        //no need to decrease the max, when moving the window.
+        public int CharacterReplacement2(string s, int k)
+        {
+            int[] letters = new int[26];
+            int l = 0;
+            int r = 0;
+            int max = 0;
+            int maxCount = 0;
+            while (r < s.Length)
+            {
+                int letterIndex = s[r] - 'A';
+                letters[letterIndex]++;
+                if (maxCount < letters[letterIndex])
+                {
+                    maxCount = letters[letterIndex];
+                }
+                int windowLength = r - l + 1;
+                bool conditon = windowLength - maxCount <= k;
+                while (!conditon)
+                {
+                    letterIndex = s[l] - 'A';
+                    letters[letterIndex]--;
+                    l++;
+                    windowLength = r - l + 1;
+                    conditon = windowLength - maxCount <= k;
+                }
+                if (max < windowLength)
+                {
+                    max = windowLength;
+                }
+                r++;
+            }
+            return max;
+        }
+
     }
 }

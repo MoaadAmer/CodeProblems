@@ -41,18 +41,18 @@ using Xunit;
 //Console.WriteLine(map.CanConstruct("aa", "aab"));
 
 
-ArraysAndHashing arraysAndHashing = new ArraysAndHashing();
-IList<IList<string>>res= arraysAndHashing.GroupAnagrams(["bdddddddddd", "bbbbbbbbbbc"]);
+//ArraysAndHashing arraysAndHashing = new ArraysAndHashing();
+//IList<IList<string>>res= arraysAndHashing.GroupAnagrams(["bdddddddddd", "bbbbbbbbbbc"]);
 
 
-for(int i = 0; i < res.Count; i++)
-{
-    Console.WriteLine($"Group {i+1}");
-    foreach(var item in res[i])
-    {
-        Console.WriteLine(item);
-    }
-}
+//for(int i = 0; i < res.Count; i++)
+//{
+//    Console.WriteLine($"Group {i+1}");
+//    foreach(var item in res[i])
+//    {
+//        Console.WriteLine(item);
+//    }
+//}
 
 //int[] topK = arraysAndHashing.TopKFrequent([1, 2, 1, 2, 1, 2, 3, 1, 3, 2], 2);
 //Console.WriteLine("Top k");
@@ -165,3 +165,7 @@ for(int i = 0; i < res.Count; i++)
 //    new SingleNode<int>(4, null))));
 //recursion.PrintInReverseOrder(head);
 
+
+
+SlidingWindow slidingWindow=new SlidingWindow();
+Console.WriteLine( slidingWindow.CharacterReplacement2("ABAB",  2));
