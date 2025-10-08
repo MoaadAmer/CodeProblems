@@ -1,7 +1,66 @@
-﻿namespace CodeProblems.NeetCode150
+﻿using System.Collections.Generic;
+using System.ComponentModel;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace CodeProblems.NeetCode150
 {
     public class ArraysAndHashing
     {
+
+        //217. Contains Duplicate
+        //Easy
+      
+        //Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+
+
+
+        //Example 1:
+
+        //Input: nums = [1, 2, 3, 1]
+
+        //Output: true
+
+        //Explanation:
+
+        //The element 1 occurs at the indices 0 and 3.
+
+        //Example 2:
+
+        //Input: nums = [1, 2, 3, 4]
+
+        //Output: false
+
+        //Explanation:
+
+        //All elements are distinct.
+
+        //Example 3:
+
+        //Input: nums = [1, 1, 1, 3, 3, 4, 3, 2, 4, 2]
+
+        //Output: true
+
+
+
+
+        //Constraints:
+
+        //1 <= nums.length <= 105
+        //-109 <= nums[i] <= 109
+
+        public bool ContainsDuplicate(int[] nums)
+        {
+            var set = new HashSet<int>();
+            foreach (int num in nums)
+            {
+                if (set.Contains(num))
+                {
+                    return false;
+                }
+                set.Add(num);
+            }
+            return true;
+        }
         //49. Group Anagrams
         //Runtime O(N*M) where N=Number of strings and M= the average length of the strings
         //Space O(N)
