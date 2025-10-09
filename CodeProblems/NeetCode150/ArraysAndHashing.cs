@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.VisualBasic;
+using System.Collections.Generic;
 using System.ComponentModel;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -61,6 +62,57 @@ namespace CodeProblems.NeetCode150
             }
             return true;
         }
+
+        //242. Valid Anagram
+        //Easy
+        //Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+
+        //Example 1:
+
+        //Input: s = "anagram", t = "nagaram"
+
+        //Output: true
+
+        //Example 2:
+
+        //Input: s = "rat", t = "car"
+
+        //Output: false
+
+
+
+        //Constraints:
+
+        //1 <= s.length, t.length <= 5 * 104
+        //s and t consist of lowercase English letters.
+
+
+        //Runtime O(N)
+        //Space O(26)
+        //another way to do this with hashmaps
+        public bool IsAnagram(string s, string t)
+        {
+            int[] counter = new int[26];
+
+            foreach (char c in s)
+            {
+                counter[c - 'a']++;
+            }
+
+            foreach (char c in t)
+            {
+                counter[c - 'a']--;
+            }
+            for (int i = 0; i < 26; i++)
+            {
+                if (counter[i] != 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         //49. Group Anagrams
         //Runtime O(N*M) where N=Number of strings and M= the average length of the strings
         //Space O(N)
