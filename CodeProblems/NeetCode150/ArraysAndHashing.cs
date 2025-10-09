@@ -1,9 +1,4 @@
-﻿using Microsoft.VisualBasic;
-using System.Collections.Generic;
-using System.ComponentModel;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace CodeProblems.NeetCode150
+﻿namespace CodeProblems.NeetCode150
 {
     public class ArraysAndHashing
     {
@@ -113,9 +108,52 @@ namespace CodeProblems.NeetCode150
             return true;
         }
 
+
+        //242. Valid Anagram
+        //Runtime O(N)
+        //Space O(N)
+        //public bool IsAnagram(string str1, string str2)
+        //{
+        //    if (str1.Length != str2.Length)
+        //    {
+        //        return false;
+        //    }
+        //    Dictionary<char, int> dic = new Dictionary<char, int>();
+        //    for (int i = 0; i < str1.Length; i++)
+        //    {
+        //        if (dic.ContainsKey(str1[i]))
+        //        {
+        //            dic[str1[i]] = dic[str1[i]] + 1;
+        //        }
+        //        else
+        //        {
+        //            dic.Add(str1[i], 1);
+        //        }
+        //    }
+        //    for (int j = 0; j < str2.Length; j++)
+        //    {
+        //        if (!dic.ContainsKey(str2[j]) || dic[str2[j]] == 0)
+        //        {
+        //            return false;
+        //        }
+        //        else
+        //        {
+        //            dic[str2[j]] -= 1;
+        //        }
+        //    }
+        //    return true;
+        //}
+
+        //Runtime O(N)
+        //Space O(N)
+
+
+
         //49. Group Anagrams
         //Runtime O(N*M) where N=Number of strings and M= the average length of the strings
         //Space O(N)
+
+
         public IList<IList<string>> GroupAnagrams(string[] strs)
         {
             Dictionary<string, List<string>> count = new();
@@ -141,43 +179,6 @@ namespace CodeProblems.NeetCode150
             return result;
         }
 
-        //242. Valid Anagram
-        //Runtime O(N)
-        //Space O(N)
-        public bool IsAnagram(string str1, string str2)
-        {
-            if (str1.Length != str2.Length)
-            {
-                return false;
-            }
-            Dictionary<char, int> dic = new Dictionary<char, int>();
-            for (int i = 0; i < str1.Length; i++)
-            {
-                if (dic.ContainsKey(str1[i]))
-                {
-                    dic[str1[i]] = dic[str1[i]] + 1;
-                }
-                else
-                {
-                    dic.Add(str1[i], 1);
-                }
-            }
-            for (int j = 0; j < str2.Length; j++)
-            {
-                if (!dic.ContainsKey(str2[j]) || dic[str2[j]] == 0)
-                {
-                    return false;
-                }
-                else
-                {
-                    dic[str2[j]] -= 1;
-                }
-            }
-            return true;
-        }
-
-        //Runtime O(N)
-        //Space O(N)
         public int[] TopKFrequent(int[] nums, int k)
         {
             Dictionary<int, int> counter = new Dictionary<int, int>();
