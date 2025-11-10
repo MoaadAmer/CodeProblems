@@ -1,14 +1,4 @@
-﻿using Microsoft.VisualBasic;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Numerics;
-using System.Runtime.Intrinsics.X86;
-using System.Security.Cryptography;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace CodeProblems.NeetCode150
+﻿namespace CodeProblems.NeetCode150
 {
     public class ArraysAndHashing
     {
@@ -280,41 +270,85 @@ namespace CodeProblems.NeetCode150
                         }
                     }
                 }
-
             }
             return result;
         }
 
 
-        //271 .Encode and Decode Strings
-        //Design an algorithm to encode a list of strings to a single string. The encoded string is then decoded back to the original list of strings.
+        //238. Product of Array Except Self
+        //Medium
+        //Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].
 
-        //Please implement encode and decode
+        //The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
+
+        //You must write an algorithm that runs in O(n) time and without using the division operation.
+
+
 
         //Example 1:
 
-        //Input: ["neet", "code", "love", "you"]
-
-        //Output:["neet", "code", "love", "you"]
+        //Input: nums = [1, 2, 3, 4]
+        //Output: [24, 12, 8, 6]
         //Example 2:
 
-        //Input: ["we", "say", ":", "yes"]
+        //Input: nums = [-1, 1, 0, -3, 3]
+        //Output: [0, 0, 9, 0, 0]
 
-        //Output: ["we", "say", ":", "yes"]
+
         //Constraints:
 
-        //0 <= strs.length< 100
-        //0 <= strs[i].length< 200
-        //strs[i] contains only UTF-8 characters.
+        //2 <= nums.length <= 105
+        //-30 <= nums[i] <= 30
+        //The input is generated such that answer[i] is guaranteed to fit in a 32-bit integer.
 
-        //public string Encode(IList<string> strs)
+
+
+        //Follow up: Can you solve the problem in O(1) extra space complexity? (The output array does not count as extra space for space complexity analysis.)
+
+        // Runtime O(N)
+        //Space O(N)
+        //public int[] ProductExceptSelf(int[] nums)
         //{
+        //    var prefix = new int[nums.Length + 1];
+        //    prefix[0] = 1;
+        //    var postfix = new int[nums.Length + 1];
+        //    postfix[nums.Length] = 1;
+        //    for (int i = 0; i < nums.Length; i++)
+        //    {
+        //        prefix[i + 1] = nums[i] * prefix[i];
+        //    }
+        //    for (int i = nums.Length - 1; i >= 0; i--)
+        //    {
+        //        postfix[i] = nums[i] * postfix[i + 1];
+        //    }
+        //    var result = new int[nums.Length];
+        //    for (int i = 0; i < nums.Length; i++)
+        //    {
+        //        result[i] = prefix[i] * postfix[i + 1];
+        //    }
 
+        //    return result;
         //}
 
-        //public List<string> Decode(string s)
-        //{
 
-        //}
+        // Runtime O(N)
+        //Space O(1)
+        public int[] ProductExceptSelf(int[] nums)
+        {
+            var result = new int[nums.Length];
+            int prefix = 1;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                result[i] = prefix;
+                prefix *= nums[i];
+            }
+            int postfix = 1;
+            for (int i = nums.Length - 1; i >= 0; i--)
+            {
+                result[i] *= postfix;
+                postfix *= nums[i];
+            }
+            return result;
+        }
     }
 }
